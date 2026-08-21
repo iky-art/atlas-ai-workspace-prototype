@@ -1,0 +1,114 @@
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-splash);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0b0d10;
+  opacity: 1;
+  transition: opacity 420ms ease;
+}
+
+.splash.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splash-terminal {
+  width: min(92vw, 520px);
+  padding: var(--space-6);
+}
+
+.splash-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.splash-brand-mark {
+  width: 24px;
+  height: 24px;
+}
+
+.splash-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.splash-brand-title {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: #f4f5f7;
+  letter-spacing: 0.02em;
+}
+
+.splash-brand-sub {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #6b7280;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.splash-output {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.9;
+  color: #b6bcc6;
+  min-height: 176px;
+}
+
+.splash-line {
+  white-space: pre-wrap;
+  opacity: 0;
+}
+
+.splash-line.is-visible {
+  opacity: 1;
+}
+
+.splash-line .ok {
+  color: #22c55e;
+}
+
+.splash-line .prompt,
+.splash-line.prompt {
+  color: #8b929d;
+}
+
+.splash-line.is-ready {
+  color: #f4f5f7;
+  font-weight: var(--weight-semibold);
+  margin-top: var(--space-2);
+}
+
+.splash-cursor {
+  display: inline-block;
+  width: 7px;
+  height: 14px;
+  margin-left: 2px;
+  background-color: #f4f5f7;
+  vertical-align: middle;
+  animation: cursor-blink 1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-cursor {
+    animation: none;
+  }
+}
+
+@keyframes cursor-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}

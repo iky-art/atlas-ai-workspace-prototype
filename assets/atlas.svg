@@ -1,0 +1,5 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Atlas">
+  <rect width="64" height="64" rx="14" fill="#0B0D10"/>
+  <path d="M13 55 L32 8 L51 55" fill="none" stroke="#F4F5F7" stroke-width="7" stroke-linecap="square" stroke-linejoin="miter"/>
+  <path d="M19.5 36 L28 36 L28 43" fill="none" stroke="#F4F5F7" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+</svg>

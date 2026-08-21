@@ -1,0 +1,171 @@
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  transition: background-color var(--ease-base), color var(--ease-base);
+}
+
+::selection {
+  background-color: var(--atlas-accent);
+  color: #ffffff;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--atlas-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.01em;
+}
+
+p {
+  color: var(--color-muted);
+}
+
+code,
+.mono {
+  font-family: var(--font-mono);
+}
+
+/* ---- Scrollbars ---- */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: var(--radius-full);
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---- Visually hidden (a11y) ---- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Small icon buttons shared across header/sidebar/modals ---- */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  color: var(--color-muted);
+  transition: background-color var(--ease-fast), color var(--ease-fast);
+}
+
+.icon-btn:hover {
+  background-color: var(--color-elevated);
+  color: var(--color-text);
+}
+
+.icon-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ---- Primary/secondary buttons shared across modals/settings ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: 38px;
+  padding-inline: var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  transition: background-color var(--ease-fast), border-color var(--ease-fast),
+    color var(--ease-fast);
+}
+
+.btn-primary {
+  background: var(--atlas-gradient);
+  color: #ffffff;
+  transition: filter var(--ease-fast), transform var(--ease-fast);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-primary:disabled {
+  filter: grayscale(0.4);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-elevated);
+}
+
+.btn-danger {
+  background-color: transparent;
+  border: 1px solid var(--color-border-strong);
+  color: #ef4444;
+}
+
+.btn-danger:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+/* ---- Settings: reduced-motion opt-in (Settings > Animations) ---- */
+.is-no-animations *,
+.is-no-animations *::before,
+.is-no-animations *::after {
+  animation-duration: 0.01ms !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* ---- Settings: compact mode ---- */
+.is-compact .message-list {
+  gap: var(--space-5);
+}
+
+.is-compact .session-item,
+.is-compact .sidebar-link {
+  height: 32px;
+}
+
+.is-compact .chat-scroll {
+  padding-block: var(--space-5) var(--space-4);
+}

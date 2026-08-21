@@ -1,0 +1,118 @@
+html,
+body,
+#app {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* ---- Mobile / tablet (< 1024px): sidebar becomes a drawer ---- */
+@media (max-width: 1023px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-sidebar);
+    width: min(84vw, 300px);
+    transform: translateX(-100%);
+    transition: transform var(--ease-base);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .sidebar.is-collapsed {
+    width: min(84vw, 300px);
+  }
+
+  .sidebar.is-collapsed .sidebar-label,
+  .sidebar.is-collapsed .brand-text,
+  .sidebar.is-collapsed .sidebar-label-inline,
+  .sidebar.is-collapsed .session-item-title,
+  .sidebar.is-collapsed .session-item-actions,
+  .sidebar.is-collapsed .sidebar-account-name {
+    display: revert;
+  }
+
+  .sidebar-footer {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: inline-flex;
+  }
+
+  .header-context {
+    display: none;
+  }
+
+  /* Rename/delete rely on :hover on desktop, which touch input never
+     triggers — keep them visible whenever the drawer is on mobile/tablet. */
+  .session-item-actions {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .drawer-overlay {
+    display: none;
+  }
+}
+
+/* ---- Compact header + composer padding on small phones ---- */
+@media (max-width: 430px) {
+  .app-header {
+    padding-inline: var(--space-3);
+  }
+
+  .header-meta {
+    gap: var(--space-2);
+  }
+
+  .composer-region {
+    padding-inline: var(--space-3);
+  }
+
+  .about-meta {
+    grid-template-columns: 1fr;
+  }
+
+  /* Compact header on small phones: keep the status dot + READY, drop the
+     "ATLAS CORE" label so nothing wraps or crowds the session name. */
+  .status-label {
+    display: none;
+  }
+
+  .header-divider {
+    display: none;
+  }
+
+  .modal-panel {
+    width: 94vw;
+  }
+
+  .modal-overlay {
+    padding-top: 8vh;
+  }
+}
+
+/* ---- Keyboard-safe composer on mobile ----
+   main.js/mobile.js sets --keyboard-inset via the VisualViewport API;
+   defaults to 0 so desktop/no-JS layout is unaffected. */
+:root {
+  --keyboard-inset: 0px;
+}
+
+@media (max-width: 1023px) {
+  .composer-region {
+    padding-bottom: calc(var(--space-4) + var(--safe-bottom) + var(--keyboard-inset));
+  }
+}
+
+/* ---- Large desktop: slightly roomier composer column ---- */
+@media (min-width: 1440px) {
+  .composer-region {
+    padding-inline: var(--space-8);
+  }
+}

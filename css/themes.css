@@ -1,0 +1,59 @@
+/* ==========================================
+   DARK THEME (default)
+   ========================================== */
+:root,
+:root[data-theme='dark'] {
+  --color-bg: #0b0d10;
+  --color-surface: #111419;
+  --color-elevated: #171b21;
+  --color-border: #252a32;
+  --color-border-strong: #323844;
+  --color-text: #f4f5f7;
+  --color-muted: #8b929d;
+  --color-muted-2: #5c6470;
+
+  --shadow-color: 0, 0, 0;
+  --shadow-sm: 0 1px 2px rgba(var(--shadow-color), 0.35);
+  --shadow-md: 0 6px 20px rgba(var(--shadow-color), 0.4);
+  --shadow-lg: 0 16px 40px rgba(var(--shadow-color), 0.5);
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+
+  --composer-bg: var(--color-elevated);
+  --composer-border: var(--color-border-strong);
+  --composer-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 10px 30px rgba(0, 0, 0, 0.35);
+
+  --scrollbar-thumb: #2a2f37;
+  --scrollbar-track: transparent;
+}
+
+/* ==========================================
+   LIGHT THEME (deliberately designed —
+   not a simple inversion of the dark palette)
+   ========================================== */
+:root[data-theme='light'] {
+  --color-bg: #f6f6f8;
+  --color-surface: #ffffff;
+  --color-elevated: #ffffff;
+  --color-border: #e3e4e8;
+  --color-border-strong: #d3d5db;
+  --color-text: #14161a;
+  --color-muted: #6b7078;
+  --color-muted-2: #9297a0;
+
+  --shadow-color: 30, 32, 40;
+  --shadow-sm: 0 1px 2px rgba(var(--shadow-color), 0.06);
+  --shadow-md: 0 6px 20px rgba(var(--shadow-color), 0.08);
+  --shadow-lg: 0 16px 40px rgba(var(--shadow-color), 0.12);
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+  /* Elevated surfaces in light mode can't get "brighter" than white,
+     so depth comes from a defined border + soft shadow instead. */
+  --composer-bg: #ffffff;
+  --composer-border: var(--color-border-strong);
+  --composer-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset,
+    0 8px 24px rgba(30, 32, 40, 0.08);
+
+  --scrollbar-thumb: #d8d9de;
+  --scrollbar-track: transparent;
+}

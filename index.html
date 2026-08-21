@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Atlas — Orbit Studio</title>
+  <link rel="icon" type="image/svg+xml" href="assets/atlas.svg" />
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/themes.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/sidebar.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/chat.css" />
+  <link rel="stylesheet" href="css/input.css" />
+  <link rel="stylesheet" href="css/splash.css" />
+  <link rel="stylesheet" href="css/landing.css" />
+  <link rel="stylesheet" href="css/login.css" />
+  <link rel="stylesheet" href="css/toast.css" />
+  <link rel="stylesheet" href="css/github-flow.css" />
+  <link rel="stylesheet" href="css/modal.css" />
+  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/team.css" />
+  <link rel="stylesheet" href="css/settings.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- ================= SPLASH ================= -->
+  <div class="splash" id="splash">
+    <div class="splash-terminal">
+      <div class="splash-brand">
+        <svg class="splash-brand-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M13 55 L32 8 L51 55" stroke="currentColor" stroke-width="7" stroke-linecap="square" stroke-linejoin="miter"/>
+          <path d="M19.5 36 L28 36 L28 43" stroke="currentColor" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+        </svg>
+        <div class="splash-brand-text">
+          <span class="splash-brand-title">ATLAS AI</span>
+          <span class="splash-brand-sub">Orbit Studio</span>
+        </div>
+      </div>
+      <div class="splash-output" id="splashOutput"></div>
+    </div>
+  </div>
+
+  <!-- ================= LANDING ================= -->
+  <div class="landing-screen" id="landingScreen" hidden>
+    <div class="landing-topbar">
+      <div class="landing-brand">
+        <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M13 55 L32 8 L51 55" stroke="currentColor" stroke-width="7" stroke-linecap="square" stroke-linejoin="miter"/>
+          <path d="M19.5 36 L28 36 L28 43" stroke="currentColor" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+        </svg>
+        <span class="landing-brand-name">ORBIT STUDIO</span>
+        <span class="landing-badge">Experimental Prototype</span>
+      </div>
+      <div class="landing-status">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>ATLAS CORE ONLINE</span>
+      </div>
+    </div>
+
+    <section class="landing-hero">
+      <svg class="landing-hero-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M13 55 L32 8 L51 55" stroke="currentColor" stroke-width="7" stroke-linecap="square" stroke-linejoin="miter"/>
+        <path d="M19.5 36 L28 36 L28 43" stroke="currentColor" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+      </svg>
+      <div>
+        <div class="landing-hero-title">ATLAS</div>
+        <div class="landing-hero-subtitle">AI Workspace</div>
+      </div>
+      <p class="landing-hero-desc">
+        An experimental AI workspace interface by Orbit Studio — sessions,
+        a simulated assistant, and a full set of workspace tools, running
+        entirely on this device. No backend, no external AI, nothing sent
+        anywhere.
+      </p>
+
+      <div class="landing-cta-row">
+        <button type="button" class="btn btn-primary" id="landingGetStartedBtn">Get Started</button>
+        <button type="button" class="btn btn-secondary" id="landingSignInBtn">Sign In</button>
+      </div>
+      <button type="button" class="landing-guest-link" id="landingGuestLink">Continue as Guest →</button>
+    </section>
+
+    <section class="landing-features">
+      <div class="landing-features-label">What's inside</div>
+      <div class="landing-grid">
+        <div class="landing-feature-card">
+          <span class="landing-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M4 6.5A1.5 1.5 0 0 1 5.5 5h9A1.5 1.5 0 0 1 16 6.5v6a1.5 1.5 0 0 1-1.5 1.5H9l-3.5 3v-3H5.5A1.5 1.5 0 0 1 4 12.5v-6Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          </span>
+          <div class="landing-feature-title">Simulated Workspace Chat</div>
+          <p class="landing-feature-desc">Local, keyword-matched responses with a typing effect — no external AI connected.</p>
+        </div>
+        <div class="landing-feature-card">
+          <span class="landing-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h9A1.5 1.5 0 0 1 16 5.5v9a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 4 14.5v-9Z" stroke="currentColor" stroke-width="1.3"/><path d="M7 8h6M7 11h4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </span>
+          <div class="landing-feature-title">Sessions</div>
+          <p class="landing-feature-desc">Create, rename, and switch between sessions — saved on this device only.</p>
+        </div>
+        <div class="landing-feature-card">
+          <span class="landing-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none"><circle cx="9" cy="9" r="5" stroke="currentColor" stroke-width="1.3"/><path d="m16 16-3.5-3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </span>
+          <div class="landing-feature-title">Command Palette</div>
+          <p class="landing-feature-desc">Press Ctrl+K for quick actions — new session, search, theme, settings.</p>
+        </div>
+        <div class="landing-feature-card">
+          <span class="landing-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none"><rect x="3.5" y="4.5" width="13" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"/><circle cx="7" cy="8.2" r="1.1" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 12.5 8 9.7l2 1.8 2.3-2.3 3.2 3.3" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+          </span>
+          <div class="landing-feature-title">
+            Photo Attachments
+            <span class="landing-feature-tag">Prototype</span>
+          </div>
+          <p class="landing-feature-desc">Image attachment UI is in place — upload handling isn't wired up yet.</p>
+        </div>
+        <div class="landing-feature-card">
+          <span class="landing-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M7 6.5v7l-3-2.2H2.5v-2.6H4L7 6.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M11.5 7.3a2.8 2.8 0 0 1 0 5.4M13.3 5.3a5.4 5.4 0 0 1 0 9.4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </span>
+          <div class="landing-feature-title">
+            Text-to-Speech
+            <span class="landing-feature-tag">Prototype</span>
+          </div>
+          <p class="landing-feature-desc">Read-aloud control is on every response — playback isn't implemented yet.</p>
+        </div>
+        <div class="landing-feature-card">
+          <span class="landing-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M10 2.5 4 5v4.5c0 4 2.7 6.9 6 7.9 3.3-1 6-3.9 6-7.9V5l-6-2.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          </span>
+          <div class="landing-feature-title">Local-first</div>
+          <p class="landing-feature-desc">Everything — sessions, messages, preferences — stays in this browser.</p>
+        </div>
+        <div class="landing-feature-card">
+          <span class="landing-feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M10 3.5c-3.6 0-6.5 2.9-6.5 6.5 0 2.9 1.9 5.3 4.5 6.2.3.1.5-.1.5-.4v-1.4c-1.8.4-2.2-.9-2.2-.9-.3-.8-.7-1-.7-1-.6-.4.1-.4.1-.4.6 0 1 .7 1 .7.6 1 1.6.7 2 .5.1-.4.2-.7.4-.9-1.4-.2-2.9-.7-2.9-3.2 0-.7.2-1.3.7-1.7-.1-.2-.3-.9.1-1.9 0 0 .6-.2 1.9.7.6-.1 1.1-.2 1.7-.2.6 0 1.1.1 1.7.2 1.3-.9 1.9-.7 1.9-.7.4 1 .1 1.7.1 1.9.4.5.7 1.1.7 1.7 0 2.5-1.5 3-2.9 3.2.2.2.4.6.4 1.2v1.8c0 .3.2.5.5.4 2.6-.9 4.5-3.3 4.5-6.2 0-3.6-2.9-6.5-6.5-6.5Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/></svg>
+          </span>
+          <div class="landing-feature-title">Push to GitHub</div>
+          <p class="landing-feature-desc">A guided repo-generation flow, step by step — a demo of the experience, not a live sync.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="landing-footer">
+      <p class="landing-footer-text">Built by Orbit Studio · Atlas v0.1.0 · Experimental Prototype</p>
+    </div>
+  </div>
+
+  <!-- ================= AUTH (Sign In / Sign Up) ================= -->
+  <div class="login-screen" id="loginScreen" hidden>
+    <div class="login-card">
+      <div class="login-brand">
+        <svg class="login-brand-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M13 55 L32 8 L51 55" stroke="currentColor" stroke-width="7" stroke-linecap="square" stroke-linejoin="miter"/>
+          <path d="M19.5 36 L28 36 L28 43" stroke="currentColor" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+        </svg>
+        <div>
+          <div class="login-title" id="authTitle">Sign in to Atlas</div>
+          <div class="login-subtitle">Orbit Studio — Experimental Prototype</div>
+        </div>
+      </div>
+
+      <div class="theme-switch auth-tabs" id="authTabs" role="tablist" aria-label="Sign in or sign up">
+        <button type="button" data-auth-tab="signin" class="is-active" role="tab" aria-selected="true">Sign In</button>
+        <button type="button" data-auth-tab="signup" role="tab" aria-selected="false">Sign Up</button>
+      </div>
+
+      <form class="login-form" id="signinForm" novalidate>
+        <div class="login-field">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" placeholder="you@example.com" autocomplete="email" required />
+        </div>
+        <div class="login-field">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password" required />
+        </div>
+
+        <p class="login-error" id="loginError" role="alert"></p>
+
+        <button type="submit" class="btn btn-primary login-submit" id="loginSubmitBtn">
+          <span class="login-submit-label">Sign In</span>
+          <span class="login-submit-spinner" aria-hidden="true"></span>
+        </button>
+      </form>
+
+      <form class="login-form" id="signupForm" novalidate hidden>
+        <div class="login-field">
+          <label for="signupName">Name</label>
+          <input type="text" id="signupName" placeholder="Your name" autocomplete="name" required />
+        </div>
+        <div class="login-field">
+          <label for="signupEmail">Email</label>
+          <input type="email" id="signupEmail" placeholder="you@example.com" autocomplete="email" required />
+        </div>
+        <div class="login-field">
+          <label for="signupPassword">Password</label>
+          <input type="password" id="signupPassword" placeholder="••••••••" autocomplete="new-password" required />
+        </div>
+        <div class="login-field">
+          <label for="signupConfirmPassword">Confirm Password</label>
+          <input type="password" id="signupConfirmPassword" placeholder="••••••••" autocomplete="new-password" required />
+        </div>
+
+        <p class="login-error" id="signupError" role="alert"></p>
+
+        <button type="submit" class="btn btn-primary login-submit" id="signupSubmitBtn">
+          <span class="login-submit-label">Create Account</span>
+          <span class="login-submit-spinner" aria-hidden="true"></span>
+        </button>
+      </form>
+
+      <div class="login-divider">or</div>
+
+      <button type="button" class="btn btn-secondary login-guest-btn" id="loginGuestBtn">Continue as Guest</button>
+
+      <p class="login-note">This is a local prototype — there is no real account system. Any email and password combination signs you in.</p>
+
+      <button type="button" class="landing-guest-link" id="authBackBtn">← Back</button>
+    </div>
+  </div>
+
+  <!-- ================= APP SHELL ================= -->
+  <div id="app" hidden>
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-identity">
+          <svg class="brand-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <path d="M13 55 L32 8 L51 55" stroke="currentColor" stroke-width="7" stroke-linecap="square" stroke-linejoin="miter"/>
+            <path d="M19.5 36 L28 36 L28 43" stroke="currentColor" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+          </svg>
+          <span class="brand-text">Atlas</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <button type="button" class="new-session-btn" id="newSessionBtn">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4.5v11M4.5 10h11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span class="sidebar-label-inline">New Session</span>
+        </button>
+      </div>
+
+      <nav class="sidebar-scroll" aria-label="Sessions and workspace">
+        <span class="sidebar-label">Sessions</span>
+        <ul class="session-list" id="sessionList"></ul>
+
+        <span class="sidebar-label">Workspace</span>
+        <button type="button" class="sidebar-link" id="contextLink">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 6.5A1.5 1.5 0 0 1 5.5 5h9A1.5 1.5 0 0 1 16 6.5v7a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 4 13.5v-7Z" stroke="currentColor" stroke-width="1.3"/></svg>
+          <span>Context</span>
+        </button>
+        <button type="button" class="sidebar-link" id="activityLink">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5h2.5l1.5-4 3 8 1.5-4H16" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Activity</span>
+        </button>
+
+        <span class="sidebar-label">System</span>
+        <button type="button" class="sidebar-link" id="openSettingsBtn">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="2.6" stroke="currentColor" stroke-width="1.3"/><path d="M10 3.5v2M10 14.5v2M16.5 10h-2M5.5 10h-2M14.6 5.4l-1.4 1.4M6.8 13.2l-1.4 1.4M14.6 14.6l-1.4-1.4M6.8 6.8 5.4 5.4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          <span>Settings</span>
+        </button>
+        <button type="button" class="sidebar-link" id="openAboutBtn">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="6.5" stroke="currentColor" stroke-width="1.3"/><path d="M10 9v4.5M10 6.8v.1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          <span>About</span>
+        </button>
+        <button type="button" class="sidebar-link" id="openTeamBtn">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="7" cy="8" r="2.2" stroke="currentColor" stroke-width="1.3"/><circle cx="13.2" cy="8" r="2.2" stroke="currentColor" stroke-width="1.3"/><path d="M3.3 15.5c.5-2.2 2-3.5 3.7-3.5s3.2 1.3 3.7 3.5M9.6 15.5c.5-2.2 2-3.5 3.7-3.5s3.2 1.3 3.7 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          <span>Team</span>
+        </button>
+      </nav>
+
+      <button type="button" class="sidebar-account" id="sidebarAccountBtn" aria-label="Open account settings">
+        <span class="sidebar-account-avatar" id="sidebarAccountAvatar" aria-hidden="true">?</span>
+        <span class="sidebar-account-name" id="sidebarAccountName">—</span>
+      </button>
+
+      <div class="sidebar-footer">
+        <button type="button" class="collapse-btn" id="collapseBtn" aria-label="Collapse sidebar">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="sidebar-label-inline">Collapse</span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="app-header">
+        <div class="header-left">
+          <button type="button" class="icon-btn mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3.5 6h13M3.5 10h13M3.5 14h13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+
+          <div class="header-status">
+            <span class="status-label">ATLAS CORE</span>
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="status-ready">READY</span>
+          </div>
+
+          <div class="header-divider" aria-hidden="true"></div>
+
+          <div class="header-meta">
+            <span class="header-session">Session <strong id="headerSessionTitle">—</strong></span>
+            <span class="header-context">Context: <strong>General</strong></span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button type="button" class="command-trigger" id="commandTriggerBtn" aria-label="Open command palette">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="5" stroke="currentColor" stroke-width="1.3"/><path d="m16 16-3.5-3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            <span>Search</span>
+            <kbd>Ctrl</kbd><kbd>K</kbd>
+          </button>
+          <button type="button" class="icon-btn" id="themeToggleBtn" aria-label="Toggle theme">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 3.5a6.5 6.5 0 1 0 6.5 6.5 5 5 0 0 1-6.5-6.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="workspace">
+        <div class="chat-scroll" id="chatScroll">
+          <div class="container-narrow">
+            <div class="message-list" id="messageList"></div>
+          </div>
+        </div>
+
+        <div class="composer-region">
+          <div class="container-narrow">
+            <div class="composer" id="composer">
+              <button type="button" class="composer-attach" id="composerPhotoBtn" aria-label="Attach photo">
+                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="3" y="4.5" width="14" height="11" rx="1.5" stroke="currentColor" stroke-width="1.3"/><circle cx="7.2" cy="8.4" r="1.2" stroke="currentColor" stroke-width="1.2"/><path d="M4 13.5 8 10.2l2.2 2 2.5-2.5 3.3 3.6" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+              </button>
+              <textarea
+                class="composer-textarea"
+                id="composerInput"
+                placeholder="Message Atlas..."
+                rows="1"
+                aria-label="Message Atlas"
+              ></textarea>
+              <button type="button" class="composer-send" id="composerSend" aria-label="Send message" disabled>
+                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 16 16.5 10 4 4l1.8 5.3L12 10l-6.2.7L4 16Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <div class="composer-hint">
+              <span id="composerHintText"><kbd>Enter</kbd> to send &middot; <kbd>Shift</kbd>+<kbd>Enter</kbd> for a new line</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= COMMAND PALETTE ================= -->
+  <div class="modal-overlay" id="cmdkOverlay">
+    <div class="modal-panel" id="cmdkPanel" role="dialog" aria-modal="true" aria-label="Command palette">
+      <div class="cmdk-input-row">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="5" stroke="currentColor" stroke-width="1.3"/><path d="m16 16-3.5-3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        <input type="text" class="cmdk-input" id="cmdkInput" placeholder="Type a command..." aria-label="Command search" />
+      </div>
+      <div class="cmdk-list" id="cmdkList"></div>
+    </div>
+  </div>
+
+  <!-- ================= ABOUT MODAL ================= -->
+  <div class="modal-overlay" id="aboutOverlay">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
+      <div class="modal-header">
+        <span class="modal-title" id="aboutTitle">About</span>
+        <button type="button" class="icon-btn" data-close-modal="aboutOverlay" aria-label="Close">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="about-content">
+          <div class="about-studio">
+            <img class="about-studio-logo" src="assets/orbit-studio.png" alt="Orbit Studio" />
+            <div>
+              <div class="about-studio-name">Orbit Studio</div>
+              <div class="about-studio-tagline">Building experimental digital products, interfaces, and intelligent systems.</div>
+            </div>
+          </div>
+
+          <div class="about-divider"></div>
+
+          <div>
+            <div class="about-product-name">Atlas AI</div>
+            <p class="about-product-desc">An experimental AI interface by Orbit Studio.</p>
+          </div>
+
+          <dl class="about-meta">
+            <div class="about-meta-item">
+              <dt>Version</dt>
+              <dd>0.1.0</dd>
+            </div>
+            <div class="about-meta-item">
+              <dt>Status</dt>
+              <dd>Experimental Prototype</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TEAM MODAL ================= -->
+  <div class="modal-overlay" id="teamOverlay">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="teamTitle">
+      <div class="modal-header">
+        <span class="modal-title" id="teamTitle">The Team</span>
+        <button type="button" class="icon-btn" data-close-modal="teamOverlay" aria-label="Close">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="team-content">
+          <div class="team-member">
+            <span class="team-avatar" aria-hidden="true">I</span>
+            <div>
+              <div class="team-member-name">Iky</div>
+              <div class="team-member-role">Founder</div>
+            </div>
+          </div>
+          <div class="team-member">
+            <span class="team-avatar" aria-hidden="true">L</span>
+            <div>
+              <div class="team-member-name">Lana</div>
+              <div class="team-member-role">Co-Creator</div>
+            </div>
+          </div>
+          <div class="team-member">
+            <span class="team-avatar" aria-hidden="true">D</span>
+            <div>
+              <div class="team-member-name">Dei</div>
+              <div class="team-member-role">Co-Creator</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SETTINGS MODAL ================= -->
+  <div class="modal-overlay" id="settingsOverlay">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+      <div class="modal-header">
+        <span class="modal-title" id="settingsTitle">Settings</span>
+        <button type="button" class="icon-btn" data-close-modal="settingsOverlay" aria-label="Close">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+
+      <div class="settings-tabs" id="settingsTabs" role="tablist" aria-label="Settings categories">
+        <button type="button" class="settings-tab is-active" data-settings-tab="general" role="tab" aria-selected="true">General</button>
+        <button type="button" class="settings-tab" data-settings-tab="appearance" role="tab" aria-selected="false">Appearance</button>
+        <button type="button" class="settings-tab" data-settings-tab="ai-providers" role="tab" aria-selected="false">AI Providers</button>
+        <button type="button" class="settings-tab" data-settings-tab="connections" role="tab" aria-selected="false">Connections</button>
+        <button type="button" class="settings-tab" data-settings-tab="privacy" role="tab" aria-selected="false">Privacy</button>
+        <button type="button" class="settings-tab" data-settings-tab="shortcuts" role="tab" aria-selected="false">Shortcuts</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- ---- General ---- -->
+        <div class="settings-category" id="settingsCategoryGeneral" data-settings-category="general">
+          <div>
+            <div class="settings-section-label">Account</div>
+            <div class="settings-group">
+              <div class="settings-row">
+                <span class="settings-row-label">Signed in as</span>
+                <span class="settings-row-stat" id="settingsAccountEmail">—</span>
+              </div>
+              <div class="settings-row">
+                <span class="settings-row-label">Log out</span>
+                <button type="button" class="btn btn-secondary" id="logoutBtn">Log out</button>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="settings-section-label">System</div>
+            <div class="settings-group">
+              <div class="settings-row">
+                <span class="settings-row-label">Version</span>
+                <span class="settings-row-value">0.1.0</span>
+              </div>
+              <div class="settings-row">
+                <span class="settings-row-label">Sessions Stored</span>
+                <span class="settings-row-stat" id="sessionStatsValue">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---- Appearance ---- -->
+        <div class="settings-category" id="settingsCategoryAppearance" data-settings-category="appearance" hidden>
+          <div>
+            <div class="settings-section-label">Theme</div>
+            <div class="settings-group">
+              <div class="settings-row">
+                <span class="settings-row-label">Theme</span>
+                <div class="theme-switch" id="themeSwitch">
+                  <button type="button" data-theme-choice="dark">Dark</button>
+                  <button type="button" data-theme-choice="light">Light</button>
+                </div>
+              </div>
+              <div class="settings-row">
+                <span class="settings-row-label">Accent Color</span>
+                <div class="accent-swatches" id="accentSwatches"></div>
+              </div>
+              <div class="settings-row">
+                <span class="settings-row-label">Font Size</span>
+                <div class="font-size-switch" id="fontSizeSwitch">
+                  <button type="button" data-font-choice="small">A</button>
+                  <button type="button" data-font-choice="default">A</button>
+                  <button type="button" data-font-choice="large">A</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="settings-section-label">Interface</div>
+            <div class="settings-group">
+              <div class="settings-row">
+                <span class="settings-row-label">Compact Mode</span>
+                <button type="button" class="toggle-switch" id="compactToggle" role="switch" aria-checked="false" aria-label="Compact mode"></button>
+              </div>
+              <div class="settings-row">
+                <span class="settings-row-label">Animations</span>
+                <button type="button" class="toggle-switch is-on" id="animationsToggle" role="switch" aria-checked="true" aria-label="Animations"></button>
+              </div>
+              <div class="settings-row">
+                <span class="settings-row-label">Sound Effects</span>
+                <button type="button" class="toggle-switch" id="soundToggle" role="switch" aria-checked="false" aria-label="Sound effects"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---- AI Providers ---- -->
+        <div class="settings-category" id="settingsCategoryAiProviders" data-settings-category="ai-providers" hidden>
+          <div>
+            <div class="settings-section-label">Providers</div>
+            <div class="settings-group">
+              <div class="provider-row">
+                <span class="provider-name">Local Simulation</span>
+                <span class="provider-badge is-active">Active</span>
+              </div>
+              <div class="provider-row">
+                <span class="provider-name">OpenAI</span>
+                <span class="provider-badge">Not Connected</span>
+              </div>
+              <div class="provider-row">
+                <span class="provider-name">Anthropic</span>
+                <span class="provider-badge">Not Connected</span>
+              </div>
+              <div class="provider-row">
+                <span class="provider-name">Groq</span>
+                <span class="provider-badge">Not Connected</span>
+              </div>
+            </div>
+          </div>
+          <div class="settings-note">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2.5 4 5v4.5c0 4 2.7 6.9 6 7.9 3.3-1 6-3.9 6-7.9V5l-6-2.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            <p>Atlas responds using local, simulated logic only. No external AI provider is connected in this prototype.</p>
+          </div>
+        </div>
+
+        <!-- ---- Connections ---- -->
+        <div class="settings-category" id="settingsCategoryConnections" data-settings-category="connections" hidden>
+          <div>
+            <div class="settings-section-label">Connections</div>
+            <div class="settings-group">
+              <div class="settings-row">
+                <span class="settings-row-label">GitHub</span>
+                <button type="button" class="btn btn-primary" id="openGithubFlowBtn">Push to GitHub</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---- Privacy ---- -->
+        <div class="settings-category" id="settingsCategoryPrivacy" data-settings-category="privacy" hidden>
+          <div>
+            <div class="settings-section-label">Your Data</div>
+            <div class="settings-group">
+              <div class="settings-row">
+                <span class="settings-row-label">Export Sessions</span>
+                <button type="button" class="btn btn-secondary" id="exportSessionsBtn">Export JSON</button>
+              </div>
+              <div class="settings-row">
+                <span class="settings-row-label">Clear Local Data</span>
+                <button type="button" class="btn btn-danger" id="clearDataBtn">Clear</button>
+              </div>
+            </div>
+          </div>
+          <div class="settings-note">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2.5 4 5v4.5c0 4 2.7 6.9 6 7.9 3.3-1 6-3.9 6-7.9V5l-6-2.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            <p>Atlas runs entirely in this browser. Sessions, messages, and preferences are stored in local storage on this device only — nothing is sent to a server.</p>
+          </div>
+        </div>
+
+        <!-- ---- Shortcuts ---- -->
+        <div class="settings-category" id="settingsCategoryShortcuts" data-settings-category="shortcuts" hidden>
+          <div>
+            <div class="settings-section-label">Keyboard</div>
+            <div class="settings-group">
+              <div class="shortcut-row">
+                <span class="settings-row-label">Command Palette</span>
+                <span class="shortcut-keys"><kbd>Ctrl</kbd><kbd>K</kbd></span>
+              </div>
+              <div class="shortcut-row">
+                <span class="settings-row-label">Send Message</span>
+                <span class="shortcut-keys" id="shortcutSendKeys"><kbd>Enter</kbd></span>
+              </div>
+              <div class="shortcut-row">
+                <span class="settings-row-label">New Line</span>
+                <span class="shortcut-keys" id="shortcutNewlineKeys"><kbd>Shift</kbd><kbd>Enter</kbd></span>
+              </div>
+              <div class="shortcut-row">
+                <span class="settings-row-label">Close Dialog / Menu</span>
+                <span class="shortcut-keys"><kbd>Esc</kbd></span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="settings-section-label">Chat</div>
+            <div class="settings-group">
+              <div class="settings-row">
+                <span class="settings-row-label">Send with Ctrl+Enter</span>
+                <button type="button" class="toggle-switch" id="ctrlEnterToggle" role="switch" aria-checked="false" aria-label="Send with Ctrl+Enter"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---- Support & Community (always visible, independent of category) ---- -->
+        <div class="support-community">
+          <div class="settings-section-label">Support &amp; Community</div>
+          <button type="button" class="discord-card" id="discordCardBtn">
+            <span class="discord-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 5.3A18 18 0 0 0 15.9 4l-.3.6a13 13 0 0 1 3.7 1.4 15 15 0 0 0-15.6 0A13 13 0 0 1 7.4 4.6L7.1 4a18 18 0 0 0-4.4 1.3C.8 9 .2 12.7.5 16.3A18 18 0 0 0 5.9 19l.9-1.4a11 11 0 0 1-1.9-.9l.5-.4a13 13 0 0 0 11.2 0l.5.4a11 11 0 0 1-1.9.9l.9 1.4a18 18 0 0 0 5.4-2.7c.4-4.4-.7-8.1-2.2-11ZM8.6 14a1.6 1.6 0 0 1-1.5-1.7 1.6 1.6 0 0 1 1.5-1.7c.9 0 1.6.8 1.5 1.7 0 1-.6 1.7-1.5 1.7Zm6.8 0a1.6 1.6 0 0 1-1.5-1.7 1.6 1.6 0 0 1 1.5-1.7c.9 0 1.6.8 1.5 1.7 0 1-.6 1.7-1.5 1.7Z"/></svg>
+            </span>
+            <span class="discord-card-text">
+              <span class="discord-card-title">Discord</span>
+              <span class="discord-card-desc">Join the official Orbit Studio community</span>
+            </span>
+            <svg class="discord-card-arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= COMMUNITY RULES ================= -->
+  <div class="modal-overlay" id="rulesOverlay">
+    <div class="modal-panel is-dialog" role="dialog" aria-modal="true" aria-labelledby="rulesTitle">
+      <span class="modal-title" id="rulesTitle">Community Rules</span>
+      <p class="modal-dialog-body">Before joining, please read and agree to the rules.</p>
+      <ul class="rules-list">
+        <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Be respectful</li>
+        <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>No spam</li>
+        <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>No harassment</li>
+        <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>No malicious content</li>
+        <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Keep discussions relevant</li>
+      </ul>
+      <label class="rules-agree">
+        <input type="checkbox" id="rulesAgreeCheckbox" />
+        <span>I agree to the rules</span>
+      </label>
+      <div class="modal-dialog-actions">
+        <button type="button" class="btn btn-secondary" data-close-modal="rulesOverlay">Cancel</button>
+        <button type="button" class="btn btn-primary" id="rulesContinueBtn" disabled>Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= COMMUNITY ACCESS COUNTDOWN ================= -->
+  <div class="modal-overlay" id="countdownOverlay">
+    <div class="modal-panel is-dialog" role="dialog" aria-modal="true" aria-label="Preparing community access">
+      <div class="countdown-card">
+        <span class="countdown-label">Community Access</span>
+        <span class="countdown-number" id="countdownNumber">5</span>
+        <span class="countdown-status" id="countdownStatus">Preparing Discord...</span>
+        <span class="countdown-sub">Orbit Studio Community</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= CONFIRM DIALOG (reused for delete / clear) ================= -->
+  <div class="modal-overlay" id="confirmOverlay">
+    <div class="modal-panel is-dialog" role="alertdialog" aria-modal="true" aria-labelledby="confirmTitle">
+      <span class="modal-title" id="confirmTitle">Delete session?</span>
+      <p class="modal-dialog-body" id="confirmBody">This action cannot be undone.</p>
+      <div class="modal-dialog-actions">
+        <button type="button" class="btn btn-secondary" id="confirmCancelBtn">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirmActionBtn">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PUSH TO GITHUB (demo flow — no real repo is created) ================= -->
+  <div class="modal-overlay" id="githubFlowOverlay">
+    <div class="flow-card" role="dialog" aria-modal="true" aria-labelledby="flowTitle">
+      <div class="flow-header">
+        <span class="flow-title" id="flowTitle">Push to GitHub</span>
+        <button type="button" class="icon-btn" data-close-modal="githubFlowOverlay" aria-label="Close">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+
+      <div class="flow-steps" aria-hidden="true">
+        <div class="flow-step" id="flowStepGenerate" data-status="current">
+          <span class="flow-step-dot">1</span>
+          <span class="flow-step-label">Generate</span>
+        </div>
+        <div class="flow-step-line" id="flowLineGenerate"></div>
+        <div class="flow-step" id="flowStepVisibility" data-status="pending">
+          <span class="flow-step-dot">2</span>
+          <span class="flow-step-label">Visibility</span>
+        </div>
+        <div class="flow-step-line" id="flowLineVisibility"></div>
+        <div class="flow-step" id="flowStepPush" data-status="pending">
+          <span class="flow-step-dot">3</span>
+          <span class="flow-step-label">Push</span>
+        </div>
+      </div>
+
+      <div class="flow-content" id="flowContent">
+        <!-- Step 1: Generate (runs automatically) -->
+        <div class="flow-panel" id="flowPanelGenerate" data-panel="generate">
+          <div class="flow-panel-title">Generate your repo</div>
+          <div class="flow-repo-name" id="flowRepoNameLabel">atlas-demo/</div>
+          <ul class="flow-checklist" id="flowChecklist">
+            <li data-check="files"><span class="flow-check-icon"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5 4 7.5 8.5 2.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>16 files generated</li>
+            <li data-check="readme"><span class="flow-check-icon"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5 4 7.5 8.5 2.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>README.md</li>
+            <li data-check="gitignore"><span class="flow-check-icon"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5 4 7.5 8.5 2.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>.gitignore</li>
+            <li data-check="structure"><span class="flow-check-icon"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5 4 7.5 8.5 2.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Project structure</li>
+          </ul>
+          <div class="flow-status" id="flowGenerateStatus">Generating...</div>
+        </div>
+
+        <!-- Step 2: Visibility -->
+        <div class="flow-panel" id="flowPanelVisibility" data-panel="visibility" hidden>
+          <div class="flow-panel-title">Repository visibility</div>
+          <div class="flow-radio-group">
+            <label class="flow-radio-card">
+              <input type="radio" name="repoVisibility" value="public" checked />
+              <div>
+                <div class="flow-radio-title">Public</div>
+                <div class="flow-radio-desc">Anyone can view this repo</div>
+              </div>
+            </label>
+            <label class="flow-radio-card">
+              <input type="radio" name="repoVisibility" value="private" />
+              <div>
+                <div class="flow-radio-title">Private</div>
+                <div class="flow-radio-desc">Only you can access it</div>
+              </div>
+            </label>
+          </div>
+          <button type="button" class="btn btn-primary" id="flowVisibilityContinueBtn">Continue</button>
+        </div>
+
+        <!-- Step 3a: Push summary (requires explicit confirmation) -->
+        <div class="flow-panel" id="flowPanelPush" data-panel="push" hidden>
+          <div class="flow-panel-title">Push to GitHub</div>
+          <dl class="flow-summary">
+            <div class="flow-summary-row">
+              <dt>Repository</dt>
+              <dd id="flowSummaryRepo">—</dd>
+            </div>
+            <div class="flow-summary-row">
+              <dt>Visibility</dt>
+              <dd id="flowSummaryVisibility">PUBLIC</dd>
+            </div>
+            <div class="flow-summary-row">
+              <dt>Files</dt>
+              <dd>16 files · 1 commit</dd>
+            </div>
+          </dl>
+          <button type="button" class="btn btn-primary" id="flowPushBtn">Push to GitHub</button>
+        </div>
+
+        <!-- Step 3b: Pushing animation -->
+        <div class="flow-panel" id="flowPanelPushing" data-panel="pushing" hidden>
+          <div class="flow-panel-title">Pushing to GitHub...</div>
+          <div class="flow-progress-track">
+            <div class="flow-progress-fill" id="flowProgressFill"></div>
+          </div>
+          <ul class="flow-status-list" id="flowStatusList">
+            <li data-status="upload"><span class="flow-check-icon"></span>Uploading files</li>
+            <li data-status="commit"><span class="flow-check-icon"></span>Creating commit</li>
+            <li data-status="finalize"><span class="flow-check-icon"></span>Finalizing repository</li>
+          </ul>
+        </div>
+
+        <!-- Step 3c: Complete -->
+        <div class="flow-panel" id="flowPanelComplete" data-panel="complete" hidden>
+          <div class="flow-complete">
+            <span class="flow-complete-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5 8 14.5 16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <div class="flow-complete-title">Repository pushed</div>
+            <div class="flow-complete-repo" id="flowCompleteRepoName">atlas-demo</div>
+            <div class="flow-complete-owner" id="flowCompleteOwner">orbit-studio / atlas-demo</div>
+          </div>
+          <div class="flow-complete-actions">
+            <button type="button" class="btn btn-primary" id="flowOpenGithubBtn">Open GitHub</button>
+            <button type="button" class="btn btn-secondary" data-close-modal="githubFlowOverlay">Done</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TOASTS ================= -->
+  <div class="toast-region" id="toastRegion" aria-live="polite" role="status"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
